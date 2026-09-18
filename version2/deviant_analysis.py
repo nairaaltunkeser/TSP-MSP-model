@@ -1,31 +1,4 @@
-"""
-deviant_analysis.py  –  Deviant / oddball analyses for a trained HipCat model.
 
-Three additions requested:
-
-  (1) CA3 and CA1 representations DURING deviants
-      For each deviant type we run a stream, capture settled CA3/CA1 activity,
-      and compare the representation at the deviating position against the
-      matched standard position:
-        * fig_dev_response      : per-position |CA3|,|CA1| "surprise" — overlap
-                                  with the standard prototype + a novelty index.
-        * fig_dev_rsm           : CA3 & CA1 overlap RSMs across
-                                  {standard A..D} vs {deviant A..last}, so you
-                                  can see where the deviant representation
-                                  diverges from the standard chain.
-
-  (2) DECODING CA1 REPRESENTATIONS FOR SEQUENCES
-      A logistic-regression decoder trained on CA1 settled activity to read out
-      word-position identity (A/B/C/D), evaluated separately on standard vs
-      deviant timesteps, plus a deviant-vs-standard discriminability decoder.
-        * fig_ca1_seq_decode
-
-  (3) DIFFERENT DEVIANTS  (AB, gap, D, ...)
-      All of the above are produced for each deviant type in --dev_types.
-
-Everything reuses helpers from analysis.py so plotting/overlap conventions
-match your existing figures.
-"""
 
 import os
 import argparse
