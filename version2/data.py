@@ -1,28 +1,3 @@
-"""
-data.py  –  Stream generation for HipCat (faithful) on the ABCD-in-noise paradigm.
-
-Faithful changes vs. previous version
--------------------------------------
-* Returns prev_seq alongside seq and next_seq, so model.py can build a
-  Schapiro-style two-hot moving window on EC_in:
-      EC_in[current_item]  = 1.0
-      EC_in[previous_item] = 0.9     (temporal asymmetry – forward-biased)
-  This is how Schapiro 2017 gives the network access to the preceding item
-  without any layer carry-over between trials.
-* word_pos still encodes position inside the word (-1=bg, 0=A,1=B,2=C,3=D).
-* Background timesteps never use letter A, so a chance "A" never starts a
-  pseudo-word and inflates A->B baseline accuracy.
-* The "previous" item at t=0 is set to itself (no real history); training
-  code should mask t=0 out of analyses.
-
-Outputs of make_embedded_stream
--------------------------------
-  seq        : [B, T] long  – current item
-  prev_seq   : [B, T] long  – previous item (seq shifted RIGHT, t=0 = seq[:,0])
-  next_seq   : [B, T] long  – next item     (seq shifted LEFT,  t=T-1 wraps)
-  word_pos   : [B, T] long  – -1 background, 0..3 inside-word position
-  onset_mask : [B, T] bool  – True at A onsets
-"""
 
 import torch
 import numpy as np
