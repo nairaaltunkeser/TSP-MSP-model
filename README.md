@@ -107,9 +107,13 @@ Figures
   fig07_confusion.png              confusion matrix: argmax(ECout) per word position
   
   fig08_rasters.png                population activity rasters
+  
   fig09_weight_distributions.png   weight histograms per projection
+
   fig10_lesion_train.png           training-time lesion sweep
+  
   fig11_lesion_test.png            test-time lesion (intact training, ablated eval)
+  
   summary.txt                      key numbers
 
 
