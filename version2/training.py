@@ -1,16 +1,4 @@
 """
-training.py  –  Train the HipCat forward-prediction model (faithful version).
-
-Compatible with:
-  model.py v5 (hip-cat TSP with auto-associative CA3, hard theta gating,
-             AUTO/RECALL/PLUS cycles, Leabra CHL+CPCA, wt_sig, big loop + EC_in
-             delay line for gap completion). Accuracy is measured on the MSP
-             (auto-phase) prediction by default; --eval_readout recall switches
-             to the CA3-driven one.
-  data.py   (returns seq, prev_seq, next_seq, word_pos, onset_mask)
-
-What it tracks per epoch
-------------------------
   pred_err_all          mean MSE forward-pred error over all timesteps
   pred_err_word         mean over within-word transitions (B/C/D positions)
   pred_err_bg           mean over background transitions
