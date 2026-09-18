@@ -1,34 +1,3 @@
-"""
-tsp_restore_curves.py  –  Training-time TSP ablation with test-time restore.
-
-Question
---------
-If the trisynaptic pathway (EC_in->DG, EC_in->CA3, DG->CA3, CA3->CA3, CA3->CA1)
-is DISABLED throughout learning, what does the network learn — and does turning
-TSP back ON at test time help, hurt, or do nothing?
-
-Three training conditions, each run over multiple seeds:
-    intact     : all pathways on during training
-    tsp_off    : TSP disabled during training
-    (optional) msp_off via --conditions
-
-At every eval epoch, each model is evaluated TWICE on the same frozen weights:
-    "test lesioned"  – pathway state identical to training
-    "test restored"  – model.reset_lesions(), i.e. all pathways back on
-
-For the intact condition the two evaluations are identical by construction; it
-is plotted as the upper-bound reference.
-
-Outputs
--------
-    <figdir>/tsp_restore_curves.png   mean +/- SEM accuracy curves over seeds
-    <figdir>/tsp_restore_results.npz  raw per-seed arrays for re-plotting
-
-Usage
------
-    python tsp_restore_curves.py --seeds 0 1 2 --epochs 30
-    python tsp_restore_curves.py --seeds 0 1 2 3 4 --epochs 30 --eval_every 2
-"""
 
 import os
 import argparse
