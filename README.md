@@ -1,13 +1,13 @@
 
 deviants.py  –  sequence-violation streams 
-
+--------
 Builds streams in which the learned word A B C D is presented either intact
 (standard) or with a controlled violation (deviant), so we can compare CA3 /
 CA1 representations at the deviating position, and decode CA1 sequence
 identity for standards vs deviants.
 
 Deviant types
--------------
+
   "standard"  A  B  C  D                      (no violation; control)
   "AB"        A  X  C  D    X≠B                (early violation at position 1)
   "D"         A  B  C  X    X≠D                (terminal violation at position 3)
@@ -20,7 +20,7 @@ Deviant types
   "scramble"  random permutation of B C D after A (bonus)
 
 Design choices
---------------
+
  Background never uses letter A (so a chance A can't start a word), matching
   data.py.
 Each deviant word draws its violating item X uniformly from the "wrong" set
@@ -33,10 +33,11 @@ By default a stream is homogeneous in deviant type (all deviant words are the
 """
 
 TRIANING
+----
 training.py  –  Train forward-prediction model 
 
 What it tracks per epoch
-------------------------
+
   pred_err_all          mean MSE forward-pred error over all timesteps
   pred_err_word         mean over within-word transitions (B/C/D positions)
   pred_err_bg           mean over background transitions
@@ -51,10 +52,11 @@ Key result to look for:
 
 
 TSP CURVES 
+-----
 tsp_restore_curves.py  –  Training-time TSP ablation with test-time restore.
 
 Question
---------
+
 If the trisynaptic pathway (EC_in->DG, EC_in->CA3, DG->CA3, CA3->CA3, CA3->CA1)
 is DISABLED throughout learning, what does the network learn — and does turning
 TSP back ON at test time help, hurt, or do nothing?
@@ -72,22 +74,24 @@ For the intact condition the two evaluations are identical by construction; it
 is plotted as the upper-bound reference.
 
 Outputs
--------
+
     <figdir>/tsp_restore_curves.png   mean +/- SEM accuracy curves over seeds
     <figdir>/tsp_restore_results.npz  raw per-seed arrays for re-plotting
 
 Usage
------
+
     python tsp_restore_curves.py --seeds 0 1 2 --epochs 30
     python tsp_restore_curves.py --seeds 0 1 2 3 4 --epochs 30 --eval_every 2
-"""
+
 
 DEVIANT ANALYSIS PY
+-----
 heatmap analysis figures
 
 ANALYSIS PY 
-Figures
 -------
+Figures
+
   fig01_training_curves.png        per-transition accuracy + MSE over epochs
   fig02_position_accuracy.png      bars: accuracy at A→B / B→C / C→D / bg
   fig03_onset_aligned_accuracy.png trace aligned to A onset (-12..+12 steps)
