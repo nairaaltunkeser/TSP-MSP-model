@@ -1,31 +1,4 @@
 """
-analysis.py  –  Faithful HipCat diagnostics for the ABCD-in-noise paradigm.
-
-Key choices that make these analyses actually informative:
-
-1. SPARSE-CODE OVERLAP, NOT PEARSON.
-   DG and CA3 have ~1% and ~6% active units. Pearson correlation between two
-   such sparse vectors is dominated by agreement on zeros and is uninformative.
-   We use overlap-based similarity (cosine of binarised vectors, ≈ Jaccard).
-   Pearson is kept only for CA1/ECout where activity is denser.
-
-2. RECORD ACTIVITY AT THE PHASE THE LAYER WAS TRAINED IN.
-   MSP layers (CA1, ECout) are trained from minus-1 (theta trough) state.
-   We capture states from a clean trough-phase eval_step (model.eval_step
-   uses THETA_TROUGH internally). The "initial response" is at cycle
-   `initial_cycles` (default 5) and the "settled response" is at cycle 30.
-   This mirrors Schapiro's initial-vs-settled distinction (Fig 2a vs 2d).
-
-3. LINEAR DECODER READOUT.
-   Most rigorous "did the model learn?" test: train a logistic-regression
-   decoder from each layer's activity to predict the NEXT item identity.
-   Robust to sparsity, gives a single number per layer per condition.
-
-4. PER-PATHWAY LESION SWEEP DURING TRAINING.
-   For the dissection figure, we re-train fresh models with each pathway
-   ablated and plot the per-transition accuracy. Test-time-only ablations
-   are also produced for comparison.
-
 Figures
 -------
   fig01_training_curves.png        per-transition accuracy + MSE over epochs
