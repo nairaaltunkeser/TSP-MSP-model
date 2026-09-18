@@ -1,28 +1,3 @@
-"""
-gap_completion_test.py  –  Does the model complete a gap (omitted or substituted C)?
-
-For every embedded word A B _ D (gap at position 2, SILENT clamp) it reports,
-per pathway configuration:
-
-  recall@gap   fraction of gap pips where EC_in's current slot holds C
-               (0 whenever the big loop is inert, e.g. slot_code='separate')
-               (silent: the big loop wrote the recalled item into the empty
-               slot; substituted: always 0 by construction, the clamp holds G)
-  pred@gap     fraction of gap pips where the RECALL-phase EC_out predicts D
-  pred@D       fraction of post-gap D pips where EC_out predicts the next item
-               (D -> background is unpredictable, so this is chance-level by
-               design; it is reported to show the window is intact again)
-  ca3_match    overlap of CA3 at the gap with the standard C code (the
-               heatmap's metric); this is the completion measure
-
-Configurations: intact, big loop off, CA3->CA3 off, both off. The null
-hypothesis is that recurrence contributes nothing beyond the big loop; the
-CA3->CA3-off row tests it.
-
-Usage:
-  python gap_completion_test.py --ckpt hipcat_trained.pt
-  python gap_completion_test.py --train 8          # quick self-contained run
-"""
 
 import argparse
 import numpy as np
