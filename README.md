@@ -92,13 +92,20 @@ ANALYSIS PY
 -------
 Figures
 
-  fig01_training_curves.png        per-transition accuracy + MSE over epochs
+ / fig01_training_curves.png        per-transition accuracy + MSE over epochs
+ 
   fig02_position_accuracy.png      bars: accuracy at A→B / B→C / C→D / bg
+  
   fig03_onset_aligned_accuracy.png trace aligned to A onset (-12..+12 steps)
+  
   fig04_decoder_readout.png        linear-decoder accuracy from each layer
+  
   fig05_overlap_rsm.png            sparse-code overlap RSM, all layers, init+settled
+  
   fig06_initial_vs_settled.png     side-by-side init vs settled RSM (Schapiro Fig 2)
+  
   fig07_confusion.png              confusion matrix: argmax(ECout) per word position
+  
   fig08_rasters.png                population activity rasters
   fig09_weight_distributions.png   weight histograms per projection
   fig10_lesion_train.png           training-time lesion sweep
