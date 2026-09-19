@@ -23,6 +23,8 @@ These scripts analyse pupil and behavioural responses to normal and deviant audi
 - `pupil_behaviour_control_opto.py` — behavioural control analysis restricted to control and opto sessions.
 - `pupil_within_session_hitrate.py` — tests whether hit rate changes across a session similarly for normal and deviant trials.
 
+comments
+----
 The scripts expect the relevant `.h5` data files to be in the same folder and save figures/statistics into their own output directories.
 
 
