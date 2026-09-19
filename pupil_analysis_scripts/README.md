@@ -24,3 +24,8 @@ These scripts analyse pupil and behavioural responses to normal and deviant audi
 - `pupil_within_session_hitrate.py` — tests whether hit rate changes across a session similarly for normal and deviant trials.
 
 The scripts expect the relevant `.h5` data files to be in the same folder and save figures/statistics into their own output directories.
+
+
+main files use control, opto (standard optogenetically manipulated), opto_late (data collected after virus exp date), control with different deviant
+
+figures used in the end were with only control and opto groups
