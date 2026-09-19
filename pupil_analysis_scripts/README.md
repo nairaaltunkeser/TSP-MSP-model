@@ -30,4 +30,4 @@ The scripts expect the relevant `.h5` data files to be in the same folder and sa
 
 main files use control, opto (standard optogenetically manipulated), opto_late (data collected after virus exp date), control with different deviant
 
-figures used in the end were with only control and opto groups
+figures used in the end were with only control and opto groups (.py's with control_opto extensions use only control and opto groups' data)
