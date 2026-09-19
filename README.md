@@ -1,4 +1,3 @@
-
 deviants.py  –  sequence-violation streams 
 --------
 Builds streams in which the learned word A B C D is presented either intact
@@ -120,3 +119,10 @@ Figures
 
   example commands used:
   -----
+
+
+
+  comments:
+  ---
+  version2 is another version of the model
+  pupil analysis scrips are for experimental data analysis
